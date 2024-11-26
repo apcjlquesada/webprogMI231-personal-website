@@ -1,6 +1,4 @@
-# webprogMI231-personal-website
-
-About Me
+# webprogMI231-personal-website About Me
  ( Do not include birthdate / age / contact information)
 Education / Achievements: varsity
 Course:IT
