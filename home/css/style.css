@@ -1,3 +1,4 @@
+/* Basic Styling */
 body {
     font-family: sans-serif;
 }
@@ -6,4 +7,19 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #app {
+        padding: 10px;
+    }
+
+    .section {
+        margin-bottom: 20px;
+    }
 }
