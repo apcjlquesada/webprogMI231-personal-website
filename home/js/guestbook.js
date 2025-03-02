@@ -11,7 +11,9 @@ createApp({
     data() {
         return {
             newEntry: { name: '', message: '' },
-            entries: "",
+            entries: [],
+            menuOpen: false, // Add menuOpen property
+            menuActive: false, // Add menuActive property
         };
     },
     async mounted() {
@@ -22,34 +24,14 @@ createApp({
             // ... (your fetchEntries logic) ...
         },
         async submitEntry() {
-            const { error } = await supabaseClient.from('guestbook').insert([this.newEntry]);
-            if (error) {
-                console.error(error);
-            } else {
-                this.newEntry = { name: '', message: '' };
-                await this.fetchEntries();
-
-                // Show the modal
-                document.getElementById("successModal").style.display = "block";
-
-                // Close the modal after a delay (e.g., 3 seconds)
-                setTimeout(() => {
-                    this.closeModal();
-                }, 3000); 
-            }
+            // ... (your submitEntry logic) ...
         },
-        closeModal() { // closeModal is now inside methods
-            document.getElementById("successModal").style.display = "none";
-        }
+        closeModal() {
+            // ... (your closeModal logic) ...
+        },
+        toggleMenu() { // Add toggleMenu method
+            this.menuOpen = !this.menuOpen;
+            this.menuActive = !this.menuActive;
+        },
     },
 }).mount('#app');
-
-document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.getElementById("menuButton");
-    const menuContainer = document.querySelector(".menu-container");
-
-    menuButton.addEventListener("click", function () {
-        menuContainer.classList.toggle("open");
-        menuButton.classList.toggle("active");
-    });
-});

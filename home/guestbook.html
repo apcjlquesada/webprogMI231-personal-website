@@ -164,8 +164,8 @@
         </ul>
     </div>
     
-    <div class="menu-container">
-        <div class="menu-button" id="menuButton"></div>
+    <div class="menu-container" :class="{ open: menuOpen }">
+        <div class="menu-button" @click="toggleMenu" :class="{ active: menuActive }"></div>
         <div class="menu-items">
             <a href="index.html" class="menu-item">🏠</a>
             <a href="edu_exp.html" class="menu-item">🎓</a>
