@@ -6,11 +6,12 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
+
 createApp({
     data() {
         return {
             newEntry: { name: '', message: '' },
-            entries: [],
+            entries: "",
         };
     },
     async mounted() {
@@ -18,12 +19,7 @@ createApp({
     },
     methods: {
         async fetchEntries() {
-            const { data, error } = await supabaseClient.from('guestbook').select('*');
-            if (error) {
-                console.error(error);
-            } else {
-                this.entries = data;
-            }
+            // ... (your fetchEntries logic) ...
         },
         async submitEntry() {
             const { error } = await supabaseClient.from('guestbook').insert([this.newEntry]);
@@ -32,7 +28,18 @@ createApp({
             } else {
                 this.newEntry = { name: '', message: '' };
                 await this.fetchEntries();
+
+                // Show the modal
+                document.getElementById("successModal").style.display = "block";
+
+                // Close the modal after a delay (e.g., 3 seconds)
+                setTimeout(() => {
+                    this.closeModal();
+                }, 3000); 
             }
         },
+        closeModal() { // closeModal is now inside methods
+            document.getElementById("successModal").style.display = "none";
+        }
     },
 }).mount('#app');

@@ -38,54 +38,56 @@
 
         /* Floating Menu */
         .menu-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
+            position: fixed; /* Change to fixed positioning */
+            top: 50px;   /* Adjust distance from top as needed */
+            right: 20px;   /* Adjust distance from left as needed */
+            z-index: 20;  /* Ensure it's above other elements */
+            transform: translateX(-50%); /* Remove the horizontal centering */
         }
 
-        /* Main Menu Button */
+
         .menu-button {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background-color: #17153b;
             color: white;
             font-size: 30px;
-            font-weight: bold;
+            text-align: center;
+            line-height: 50px;
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .menu-button::before { 
+            content: "\2729"; /* Unicode for a four-pointed star */
+            color: white;  /* Unicode for a four-pointed star */
         }
 
         .menu-button.active {
             transform: rotate(45deg);
         }
 
-        /* Hidden by Default */
+/* Hidden by Default */
         .menu-items {
             position: absolute;
-            top: 70px;
+            top: 70px; /* Position below the button */
+            left: 0;    /* Align with the button's left edge */
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex-direction: column; /* Arrange items vertically */
+            gap: 15px;
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(10px); /* Initial offset downwards */
             pointer-events: none;
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
 
         .menu-container.open .menu-items {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0); /* Remove the offset */
             pointer-events: auto;
         }
 
-        /* Individual Buttons */
         .menu-item {
             width: 50px;
             height: 50px;
@@ -120,12 +122,13 @@
 
     <!-- Floating Circle Menu -->
     <div class="menu-container">
-        <div class="menu-button" id="menuButton">+</div>
+        <div class="menu-button" id="menuButton"></div>
         <div class="menu-items">
             <a href="index.html" class="menu-item">🏠</a>
-            <a href="edu.html" class="menu-item">🎓</a>
+            <a href="edu_exp.html" class="menu-item">🎓</a>
             <a href="interest.html" class="menu-item">❤️</a>
             <a href="gallery.html" class="menu-item">🖼️</a>
+            <a href="guestbook.html" class="menu-item">📝</a>
         </div>
     </div>
 
