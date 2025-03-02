@@ -10,7 +10,7 @@ createApp({
     data() {
         return {
             newEntry: { name: '', message: '' },
-            entries:,
+            entries: [],
             menuOpen: false,
             menuActive: false,
         };
