@@ -3,10 +3,27 @@ body {
     font-family: sans-serif;
 }
 
+/* ... your existing CSS ... */
+
 #app {
-    max-width: 800px;
-    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
     padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto; /* Center the guestbook */
+}
+
+#app form div {
+    margin-bottom: 10px;
+}
+
+#app ul {
+    list-style: none;
+    padding: 0;
+}
+
+#app li {
+    margin-bottom: 10px;
 }
 
 .section {
@@ -22,4 +39,174 @@ body {
     .section {
         margin-bottom: 20px;
     }
+}
+
+
+/* v1 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fix Backgrounds */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transition: opacity 0.7s ease-in-out;
+}
+
+/* First Background */
+.background1 {
+    background-image: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home1.png?raw=true');
+    
+}
+
+/* Second Background */
+.background2 {
+    background-image: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home2.png?raw=true');
+    
+}
+
+/* Content Sections */
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* Switch background on scroll */
+.section2-triggered .background1 {
+    opacity: 0;
+}
+
+.section2-triggered .background2 {
+    opacity: 1;
+}
+
+
+.section2 {
+    position: relative; /* Ensure it's a positioning context */
+    text-align: center; /* Center align content */
+    padding-bottom: 60px; /* Add space for button */
+}
+
+
+/* Content Box */
+.content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+body:not(.section2-triggered) .background2{
+opacity: 0;
+}
+
+
+/* Floating Menu Styles */
+
+.menu-container {
+    position: fixed; /* Change to fixed positioning */
+    top: 50px;   /* Adjust distance from top as needed */
+    right: 20px;   /* Adjust distance from left as needed */
+    z-index: 20;  /* Ensure it's above other elements */
+    transform: translateX(-50%); /* Remove the horizontal centering */
+}
+
+
+.menu-button {
+    width: 50px;
+    height: 50px;
+    background-color: #17153b;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-button::before { 
+    content: "\2729"; /* Unicode for a four-pointed star */
+    color: white;  /* Unicode for a four-pointed star */
+}
+
+.menu-button.active {
+    transform: rotate(45deg);
+}
+
+/* Hidden by Default */
+.menu-items {
+    position: absolute;
+    top: 70px; /* Position below the button */
+    left: 0;    /* Align with the button's left edge */
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(10px); /* Initial offset downwards */
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.menu-container.open .menu-items {
+    opacity: 1;
+    transform: translateY(0); /* Remove the offset */
+    pointer-events: auto;
+}
+
+/* Individual Buttons */
+.menu-item {
+    width: 50px;
+    height: 50px;
+    background-color: #17153b;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+    background-color: #2e295f;
+    transform: scale(1.1);
+}
+
+/* Center Image and adjust size */
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.center-image img {
+    max-width: 100vw;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+    display: block;
 }

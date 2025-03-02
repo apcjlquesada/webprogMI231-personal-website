@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education & Experience</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background for Education Page */
+        body {
+            background-image: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Content Box */
+        .content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+
+        /* Floating Menu */
+        .menu-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Main Menu Button */
+        .menu-button {
+            width: 60px;
+            height: 60px;
+            background-color: #17153b;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-button.active {
+            transform: rotate(45deg);
+        }
+
+        /* Hidden by Default */
+        .menu-items {
+            position: absolute;
+            top: 70px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .menu-container.open .menu-items {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Individual Buttons */
+        .menu-item {
+            width: 50px;
+            height: 50px;
+            background-color: #17153b;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .menu-item:hover {
+            background-color: #2e295f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Content -->
+    <div class="content">
+        <h2>Interest</h2>
+        <p>
+            Placeholder
+        </p>
+    </div>
+
+    <!-- Floating Circle Menu -->
+    <div class="menu-container">
+        <div class="menu-button" id="menuButton">+</div>
+        <div class="menu-items">
+            <a href="index.html" class="menu-item">🏠</a>
+            <a href="edu.html" class="menu-item">🎓</a>
+            <a href="interest.html" class="menu-item">❤️</a>
+            <a href="gallery.html" class="menu-item">🖼️</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuButton = document.getElementById("menuButton");
+            const menuContainer = document.querySelector(".menu-container");
+
+            menuButton.addEventListener("click", function () {
+                menuContainer.classList.toggle("open");
+                menuButton.classList.toggle("active");
+            });
+        });
+    </script>
+
+</body>
+</html>

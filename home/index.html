@@ -4,63 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
-        <div class="section" id="home">
-            <h2>Home</h2>
-            <p>Welcome to my personal website!</p>
-        </div>
+    <div class="background background1"></div>
+    <div class="background background2"></div>
 
-        <div class="section" id="profile">
-            <h2>Profile</h2>
-            <p>This is my profile information.</p>
-        </div>
-
-        <div class="section" id="education">
-            <h2>Education</h2>
-            <p>This is my education information.</p>
-        </div>
-
-        <div class="section" id="experience">
-            <h2>Experience</h2>
-            <p>This is my experience information.</p>
-        </div>
-
-        <div class="section" id="interests">
-            <h2>Interests</h2>
-            <p>These are my interests.</p>
-        </div>
-
-        <div class="section" id="gallery">
-            <h2>Gallery</h2>
-            <p>This is my gallery.</p>
-        </div>
-
-        <div class="section" id="guestbook">
-            <h2>Guestbook</h2>
-            <form @submit.prevent="submitEntry">
-                <div>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" v-model="newEntry.name" required>
-                </div>
-                <div>
-                    <label for="message">Message:</label>
-                    <textarea id="message" v-model="newEntry.message" required></textarea>
-                </div>
-                <button type="submit">Submit</button>
-            </form>
-            <ul>
-                <li v-for="entry in entries" :key="entry.id">
-                    <strong>{{ entry.name }}:</strong> {{ entry.message }}
-                </li>
-            </ul>
+    <div class="section section1">
+        <div class="center-image">
+            <img src="https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/port_pic.png?raw=true" alt="Your Image Here">
         </div>
     </div>
 
+    <div class="section section2">
+        <div class="content">
+            <h2>I'm Marielle Kloie</h2>
+            <p> I aspire to be an Information Technology Specialist, a position that can hone me into the best employee I can be,
+                versatile and efficient enough to be showcased in the industry today. Being in a working environment will encourage
+                me to be confident and true to myself.</p>
+        </div>
+
+        <div class="menu-container">
+            <div class="menu-button" id="menuButton"></div>
+            <div class="menu-items">
+                <a href="index.html" class="menu-item">🏠</a>
+                <a href="edu_exp.html" class="menu-item">🎓-</a>
+                <a href="interest.html" class="menu-item">❤️</a>
+                <a href="gallery.html" class="menu-item">🖼️</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="app" class="section">
+        <h2>Guestbook</h2>
+        <form @submit.prevent="submitEntry">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" v-model="newEntry.name" required>
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" v-model="newEntry.message" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <ul>
+            <li v-for="entry in entries" :key="entry.id">
+                <strong>{{ entry.name }}:</strong> {{ entry.message }}
+            </li>
+        </ul>
+    </div>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://unpkg.com/page/page.mjs"></script>
-    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
