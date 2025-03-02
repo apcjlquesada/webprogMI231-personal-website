@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education & Experience</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background for Education Page */
+        body {
+            background-image: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Content Box */
+        .content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+
+        /* Floating Menu */
+        .menu-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Main Menu Button */
+        .menu-button {
+            width: 60px;
+            height: 60px;
+            background-color: #17153b;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-button.active {
+            transform: rotate(45deg);
+        }
+
+        /* Hidden by Default */
+        .menu-items {
+            position: absolute;
+            top: 70px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .menu-container.open .menu-items {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Individual Buttons */
+        .menu-item {
+            width: 50px;
+            height: 50px;
+            background-color: #17153b;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        .menu-item:hover {
+            background-color: #2e295f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="section">
+        <h2>Guestbook</h2>
+        <form @submit.prevent="submitEntry">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" v-model="newEntry.name" required>
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" v-model="newEntry.message" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <ul>
+            <li v-for="entry in entries" :key="entry.id">
+                <strong>{{ entry.name }}:</strong> {{ entry.message }}
+            </li>
+        </ul>
+    </div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="js/script.js"></script> </body>
+
+</body>
+</html>
