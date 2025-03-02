@@ -1,38 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Personal Website</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="css/style.css"> </head>
 <body>
-
-<h1>Personal Profile Webpage</h1>
-
-<h2>About Me</h2>
-<p>Hello! My username is MarielleKloie, this is my personal profile web page.</p>
-<p>I aspire to be an Information Technology Specialist, a position that can hone me into the best employee I can be, versatile and efficient enough to be showcased in the industry today. Being in a working environment will encourage me to be confident and true to myself.</p>
-
-<h2>Education / Achievements</h2>
-<p>Senior High School & College: Asia Pacific College</p>
-
-<h2>Course</h2>
-<p>BSIT-MI, Bachelor of Science in Information Technology with specialization in Mobile and Internet Technologies</p>
-
-<h2>IT Experience</h2>
-<p>- Knowledgeable in Mobile Programming in Android Studio</p>
-<p>- Experience in developing User Interface</p>
-
-<h2>Hobbies & Interests</h2>
-<p>- Reading manhuas, mangas, etc.</p>
-<p>- Watching different kinds of shows and movies.</p>
-<p>- Solving puzzles</p>
-<p>- Digital and traditional drawing</p>
-<p>- Travel and spend quality time with my family</p>
-
-<h2>Goals In Life / Dream</h2>
-<p>My goal in life is to finish and graduate college. I also aim to find a stable job to support myself and my family. I wish to have sufficient resources to build my own house and travel abroad in the future.</p>
-
-<h2>Picture Gallery</h2>
-<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://scontent.fmnl30-2.fna.fbcdn.net/v/t39.30808-6/434020930_1612143012920404_5536001369734743984_n.jpg?_nc_cat=111&amp;ccb=1-7&amp;_nc_sid=833d8c&amp;_nc_eui2=AeFpusV_6JVyaxws8ggG0-Bo624VRVXpZdTrbhVFVell1FAC2D5aeBtw1O23QgywZeUtoMXCJaY3s_SQZh7xXhes&amp;_nc_ohc=PvkY_8QqeuUQ7kNvgGaU1Rp&amp;_nc_zt=23&amp;_nc_ht=scontent.fmnl30-2.fna&amp;_nc_gid=AcUueGxQ3P4gcOnmB8ZAK0l&amp;oh=00_AYBekqYYvrIlkJAn1iFNMyesZhu1_8eScWZ6ps-WWoq23g&amp;oe=674C78FE" width="933" height="700">
-
+    <div id="app">
+    <h2>Guestbook</h2>
+<form @submit.prevent="submitEntry">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="newEntry.name" required>
+    </div>
+    <div>
+        <label for="message">Message:</label>
+        <textarea id="message" v-model="newEntry.message" required></textarea>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+<ul>
+    <li v-for="entry in entries" :key="entry.id">
+        <strong>{{ entry.name }}:</strong> {{ entry.message }}
+    </li>
+</ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
