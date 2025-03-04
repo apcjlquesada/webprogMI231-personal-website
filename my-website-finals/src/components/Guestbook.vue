@@ -50,7 +50,7 @@
 
 <script>
 import { ref, onMounted } from 'vue';
-import { supabase } from '../supabaseClient'; // Adjust the path if needed
+import { supabase } from '../supabaseClient';
 
 export default {
   setup() {
