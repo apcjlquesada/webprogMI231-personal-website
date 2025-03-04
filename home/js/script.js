@@ -1,3 +1,5 @@
+
+
 window.addEventListener('scroll', function () {
     const section1 = document.querySelector('.section1');
     const section2 = document.querySelector('.section2');

@@ -6,197 +6,215 @@
     <title>Education & Experience</title>
     <style>
     body {
-    margin: 0;
-    font-family: "Baskerville", serif;
-    background: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true') center/cover no-repeat;
-    min-height: 100vh;
-    color: white;
-    position: relative;
-}
+        margin: 0;
+        font-family: "Baskerville", serif;
+        background: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true') center/cover no-repeat;
+        min-height: 100vh;
+        color: white;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-attachment: fixed;
+    }
 
-.content {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 600px;
-    width: 90%;
-    margin: 20px auto;
-    overflow-y: auto;
-}
+    .content-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        width: 90%; /* Adjust as needed */
+        max-width: 1200px; /* Limit maximum width */
+        margin-top: 20px; /* Add top margin */
+    }
 
-section h2, h3, h4, p, li, .paragraph {
-    font-family: "Baskerville", serif;
-    color: white;
-}
+    .content {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 40vw;
+        width: 40%; /* Adjust for spacing between the two boxes */
+        margin: 20px; /* Add spacing between boxes */
+        overflow-y: auto;
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
 
-section h2 {
-    font-size: 20px;
-    text-align: left;
-}
+    section h2, h3, h4, p, li, .paragraph {
+        font-family: "Baskerville", serif;
+        color: white;
+    }
 
-h1 {
-    border-radius: 2px;
-    text-align: center;
-    padding: 20px;
-    margin: 30px 0 40px;
-}
+    section h2 {
+        font-size: 20px;
+        text-align: left;
+    }
 
-h2 {
-    border-radius: 2px;
-    padding: 10px;
-    margin: 10px 0 0 10px;
-    text-align: left;
-    font-size: 30px;
-}
+    h1 {
+        border-radius: 2px;
+        text-align: center;
+        padding: 20px;
+        margin: 30px 0 40px;
+    }
 
-h3 {
-    padding: 5px;
-    margin: 10px 0 0;
-    text-align: left;
-    font-size: 20px;
-}
+    h2 {
+        border-radius: 2px;
+        padding: 10px;
+        text-align: left;
+        font-size: 20px;
+    }
 
-h4 {
-    border-radius: 2px;
-    padding: 15px;
-    margin: 10px 0 0 10px;
-    text-align: center;
-    font-size: 20px;
-    color: #4a2a80;
-}
+    h3 {
+        padding: 5px;
+        margin: 10px 0 0;
+        text-align: left;
+        font-size: 20px;
+    }
 
-p, .paragraph {
-    font-size: 15px;
-    text-align: justify;
-    margin: 30px;
-    line-height: 1.5;
-}
+    h4 {
+        border-radius: 2px;
+        padding: 30px;
+        margin: 10px 0 0 10px;
+        text-align: center;
+        font-size: 30px;
+    }
 
-.paragraph {
-    text-align: left;
-    margin: 4px 15px 12px;
-}
+    p, .paragraph {
+        font-size: 15px;
+        text-align: justify;
+        margin: 30px;
+        line-height: 1.5;
+    }
 
-ul {
-    list-style-type: square;
-}
+    .paragraph {
+        text-align: left;
+        margin: 4px 15px 12px;
+    }
 
-li {
-    margin-top: 10px;
-    font-size: 15px;
-    text-align: left;
-}
+    ul {
+        list-style-type: square;
+    }
 
-.menu-container {
-    position: fixed;
-    top: 50px;
-    right: 20px;
-    z-index: 20;
-    transform: translateX(-50%);
-}
+    li {
+        margin-top: 10px;
+        font-size: 15px;
+        text-align: left;
+    }
 
-.menu-button {
-    width: 50px;
-    height: 50px;
-    background-color: #17153b;
-    color: white;
-    font-size: 30px;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
-}
+    .menu-container {
+        position: fixed;
+        top: 50px;
+        right: 20px;
+        z-index: 20;
+        transform: translateX(-50%);
+    }
 
-.menu-button::before {
-    content: "\2729";
-    color: white;
-}
+    .menu-button {
+        width: 50px;
+        height: 50px;
+        background-color: #17153b;
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-.menu-button.active {
-    transform: rotate(45deg);
-}
+    .menu-button::before {
+        content: "\2729";
+        color: white;
+    }
 
-.menu-items {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    opacity: 0;
-    transform: translateY(10px);
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
+    .menu-button.active {
+        transform: rotate(45deg);
+    }
 
-.menu-container.open .menu-items {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
+    .menu-items {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
 
-.menu-item {
-    width: 50px;
-    height: 50px;
-    background-color: #17153b;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 50%;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
+    .menu-container.open .menu-items {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 
-.menu-item:hover {
-    background-color: #2e295f;
-    transform: scale(1.1);
-}
+    .menu-item {
+        width: 50px;
+        height: 50px;
+        background-color: #17153b;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+
+    .menu-item:hover {
+        background-color: #2e295f;
+        transform: scale(1.1);
+    }
 </style>
 </head>
 <body>
-    <div class="content">
-        <h2>Education & Experience</h2>
-        <section id="education">
-            <h2>Education / Achievements</h2>
-            <ul class="a">
-                <li>
-                    <h3>Asia Pacific College</h3>
-                    <p class="paragraph">College</p>
-                    <p class="paragraph">BS on Information Technology</p>
-                    <p class="paragraph">August 2023 – Current.</p>
-                    <p class="paragraph">Magallanes, Makati</p>
-                </li>
-                <li>
-                    <h3>Asia Pacific College</h3>
-                    <p class="paragraph">Senior High School</p>
-                    <p class="paragraph">August 2021 – June 2023.</p>
-                    <p class="paragraph">Magallanes, Makati</p>
-                </li>
-                <li>
-                    <h3>St. Theodore School Inc.</h3>
-                    <p class="paragraph">Junior High School</p>
-                    <p class="paragraph">June 2017 – March 2021</p>
-                    <p class="paragraph">Lower Bicutan, Taguig City</p>
-                </li>
-            </ul>
-        </section>
-        <section id="course">
-            <h2>Course</h2>
-            <p>BSIT-MI, Bachelor of Science in Information Technology with specialization in Mobile and Internet Technologies</p>
-        </section>
-        <section id="experience">
-            <h2>IT Experience</h2>
-            <ul class="a">
-                <li>Knowledgeable in Mobile Programming in Android Studio</li>
-                <li>Experience in developing User Interface</li>
-            </ul>
-        </section>
+    <h4>Education & Experience</h4>
+    <div class="content-container">
+        <div class="content">
+            <section id="education">
+                <h2>Education / Achievements</h2>
+                <ul class="a">
+                    <li>
+                        <h3>Asia Pacific College</h3>
+                        <p class="paragraph">College</p>
+                        <p class="paragraph">BS on Information Technology</p>
+                        <p class="paragraph">August 2023 – Current.</p>
+                        <p class="paragraph">Magallanes, Makati</p>
+                    </li>
+                    <li>
+                        <h3>Asia Pacific College</h3>
+                        <p class="paragraph">Senior High School</p>
+                        <p class="paragraph">August 2021 – June 2023.</p>
+                        <p class="paragraph">Magallanes, Makati</p>
+                    </li>
+                    <li>
+                        <h3>St. Theodore School Inc.</h3>
+                        <p class="paragraph">Junior High School</p>
+                        <p class="paragraph">June 2017 – March 2021</p>
+                        <p class="paragraph">Lower Bicutan, Taguig City</p>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="content">
+            <section id="course">
+                <h2>Course</h2>
+                <p>BSIT-MI, Bachelor of Science in Information Technology with specialization in Mobile and Internet Technologies</p>
+            </section>
+            <section id="experience">
+                <h2>IT Experience</h2>
+                <ul class="a">
+                    <li>Knowledgeable in Mobile Programming in Android Studio</li>
+                    <li>Experience in developing User Interface</li>
+                </ul>
+            </section>
+        </div>
     </div>
+
     <div class="menu-container">
         <div class="menu-button" id="menuButton"></div>
         <div class="menu-items">
@@ -219,3 +237,4 @@ li {
     </script>
 </body>
 </html>
+
