@@ -1,16 +1,48 @@
 <template>
   <div>
-    <h2>Guestbook</h2>
-    <form @submit.prevent="addMessage">
-      <input v-model="name" placeholder="Name" />
-      <textarea v-model="message" placeholder="Message"></textarea>
-      <button type="submit">Submit</button>
-    </form>
-    <ul>
-      <li v-for="entry in guestbookEntries" :key="entry.id">
-        {{ entry.name }}: {{ entry.message }}
-      </li>
-    </ul>
+    <h4>Guestbook</h4>
+    <div class="content-container">
+      <div class="content-form">
+        <section id="comments-form">
+          <form @submit.prevent="submitEntry">
+            <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" v-model="newEntry.name" required />
+            </div>
+            <div>
+              <label for="message">Comments:</label>
+              <textarea id="message" v-model="newEntry.message" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+      </div>
+
+      <div class="content">
+        <section id="comments">
+          <strong v-if="entry.name">{{ entry.name }}:</strong><br />
+          {{ entry.message }}
+        </section>
+      </div>
+    </div>
+
+    <div class="menu-container" :class="{ open: menuOpen }">
+      <div class="menu-button" @click="toggleMenu" :class="{ active: menuActive }"></div>
+      <div class="menu-items">
+        <router-link to="/" class="menu-item">🏠</router-link>
+        <router-link to="/edu_exp" class="menu-item">🎓</router-link>
+        <router-link to="/interest" class="menu-item">❤️</router-link>
+        <router-link to="/gallery" class="menu-item">🖼️</router-link>
+        <router-link to="/guestbook" class="menu-item">📝</router-link>
+      </div>
+    </div>
+
+    <div id="successModal" class="modal" v-if="showModal">
+      <div class="modal-content">
+        <p>Message successfully submitted!</p>
+        <button @click="closeModal">Close</button>
+      </div>
+    </div>
   </div>
 </template>
 

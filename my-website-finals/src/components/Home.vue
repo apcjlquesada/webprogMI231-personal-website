@@ -29,11 +29,11 @@
     <div class="menu-container" :class="{ open: isMenuOpen }">
       <div class="menu-button" @click="toggleMenu"></div>
       <div class="menu-items">
-        <a href="index.html" class="menu-item">🏠</a>
-        <a href="edu_exp.html" class="menu-item">🎓</a>
-        <a href="interest.html" class="menu-item">❤️</a>
-        <a href="gallery.html" class="menu-item">🖼️</a>
-        <a href="guestbook.html" class="menu-item">📝</a>
+        <router-link to="/" class="menu-item">🏠</router-link>
+        <router-link to="/edu_exp" class="menu-item">🎓</router-link>
+        <router-link to="/interest" class="menu-item">❤️</router-link>
+        <router-link to="/gallery" class="menu-item">🖼️</router-link>
+        <router-link to="/guestbook" class="menu-item">📝</router-link>
       </div>
     </div>
   </div>
@@ -86,6 +86,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 body {
     margin: 0;
     font-family: "Baskerville", serif;
@@ -94,7 +96,6 @@ body {
     position: relative;
 }
 
-/* Content Styles */
 .content {
     background: rgba(0, 0, 0, 0.5);
     padding: 20px;
@@ -105,7 +106,6 @@ body {
     overflow-y: auto;
 }
 
-/* Typography Styles */
 section h2, h3, h4, p, li, .paragraph {
     font-family: "Baskerville", serif;
     color: white;
@@ -169,14 +169,14 @@ li {
     text-align: left;
 }
 
-/* Reset Styles */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fixed Backgrounds */
+/* Fix Backgrounds */
 .background {
     position: fixed;
     top: 0;
@@ -190,13 +190,16 @@ li {
     transition: opacity 0.7s ease-in-out;
 }
 
-/* Background Images */
+/* First Background */
 .background1 {
     background-image: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home1.png?raw=true');
+    
 }
 
+/* Second Background */
 .background2 {
     background-image: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home2.png?raw=true');
+    
 }
 
 /* Content Sections */
@@ -213,7 +216,7 @@ li {
     width: 100%;
 }
 
-/* Background Switching on Scroll */
+/* Switch background on scroll */
 .section2-triggered .background1 {
     opacity: 1;
 }
@@ -222,32 +225,42 @@ li {
     opacity: 1;
 }
 
+
 .section2 {
-    position: relative;
-    text-align: center;
-    padding-bottom: 60px;
+    position: relative; /* Ensure it's a positioning context */
+    text-align: center; /* Center align content */
+    padding-bottom: 60px; /* Add space for button */
 }
 
-/* Adjusted Content Box for Section 2 */
-.section2 .content {
+
+/* Content Box */
+.content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
     margin-top: 90px;
     margin-left: 25%;
     margin-right: 30%;
+    overflow-y: auto;
 }
 
-/* Background Opacity for Non-Triggered Section 2 */
-body:not(.section2-triggered) .background2 {
-    opacity: 0;
+body:not(.section2-triggered) .background2{
+opacity: 0;
 }
+
 
 /* Floating Menu Styles */
+
 .menu-container {
-    position: fixed;
-    top: 50px;
-    right: 20px;
-    z-index: 20;
-    transform: translateX(-50%);
+    position: fixed; /* Change to fixed positioning */
+    top: 50px;   /* Adjust distance from top as needed */
+    right: 20px;   /* Adjust distance from left as needed */
+    z-index: 20;  /* Ensure it's above other elements */
+    transform: translateX(-50%); /* Remove the horizontal centering */
 }
+
 
 .menu-button {
     width: 50px;
@@ -262,34 +275,36 @@ body:not(.section2-triggered) .background2 {
     transition: 0.3s;
 }
 
-.menu-button::before {
-    content: "\2729";
-    color: white;
+.menu-button::before { 
+    content: "\2729"; /* Unicode for a four-pointed star */
+    color: white;  /* Unicode for a four-pointed star */
 }
 
 .menu-button.active {
     transform: rotate(45deg);
 }
 
+/* Hidden by Default */
 .menu-items {
     position: absolute;
-    top: 70px;
-    left: 0;
+    top: 70px; /* Position below the button */
+    left: 0;    /* Align with the button's left edge */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Arrange items vertically */
     gap: 15px;
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(10px); /* Initial offset downwards */
     pointer-events: none;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .menu-container.open .menu-items {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Remove the offset */
     pointer-events: auto;
 }
 
+/* Individual Buttons */
 .menu-item {
     width: 50px;
     height: 50px;
@@ -311,7 +326,7 @@ body:not(.section2-triggered) .background2 {
     transform: scale(1.1);
 }
 
-/* Center Image and Adjust Size */
+/* Center Image and adjust size */
 .center-image {
     display: flex;
     justify-content: center;
@@ -326,4 +341,5 @@ body:not(.section2-triggered) .background2 {
     height: auto;
     display: block;
 }
+
 </style>

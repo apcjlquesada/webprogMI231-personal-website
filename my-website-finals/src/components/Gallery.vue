@@ -17,11 +17,11 @@
     <div class="menu-container" :class="{ open: isMenuOpen }">
       <div class="menu-button" @click="toggleMenu"></div>
       <div class="menu-items">
-        <a href="index.html" class="menu-item">🏠</a>
-        <a href="edu_exp.html" class="menu-item">🎓</a>
-        <a href="interest.html" class="menu-item">❤️</a>
-        <a href="gallery.html" class="menu-item">🖼️</a>
-        <a href="guestbook.html" class="menu-item">📝</a>
+        <router-link to="/" class="menu-item">🏠</router-link>
+        <router-link to="/edu_exp" class="menu-item">🎓</router-link>
+        <router-link to="/interest" class="menu-item">❤️</router-link>
+        <router-link to="/gallery" class="menu-item">🖼️</router-link>
+        <router-link to="/guestbook" class="menu-item">📝</router-link>
       </div>
     </div>
     <div v-if="showOverlay" class="overlay" @click="closeEnlarged">
@@ -76,8 +76,9 @@ export default {
 </script>
 
 <style scoped>
-    /* Image Styles */
-    .gallery-image {
+
+        /* Image Styles */
+        .gallery-image {
         width: 100%; /* Make images responsive within their grid cell */
         height: auto;
         border-radius: 10px;
@@ -91,8 +92,8 @@ export default {
     }
 
     .gallery-image:hover {
-        border-color: #cfc6e1;
-    }
+            border-color: #cfc6e1;
+        }
 
     .gallery-image.enlarged {
         position: fixed;
@@ -106,25 +107,25 @@ export default {
         height: auto;
     }
 
-    /* Modal Overlay (Optional, for background dimming when enlarged) */
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 300%;
-        height: 300%;
-        background-color: rgba(0, 0, 0, 0.7);
-        z-index: 999;
-        cursor: pointer;
-}
-
-    .overlay.active {
-        display: block;
+        /* Modal Overlay (Optional, for background dimming when enlarged) */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            cursor: pointer;
     }
 
-    /* Gallery Container */
-    .gallery-container {
+        .overlay.active {
+            display: block;
+        }
+
+        /* Gallery Container */
+        .gallery-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 5px;
@@ -132,156 +133,158 @@ export default {
     }
 
 
-    body {
-        margin: 0;
-        font-family: "Baskerville", serif;
-        background: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true') center/cover no-repeat;
-        min-height: 100vh;
-        color: white;
-        position: relative;
-        background-attachment: fixed;
-    }
+        body {
+            margin: 0;
+            font-family: "Baskerville", serif;
+            background: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true') center/cover no-repeat;
+            min-height: 100vh;
+            color: white;
+            position: relative;
+            background-attachment: fixed;
+        }
 
-    .content {
-        background: rgba(0, 0, 0, 0.5);
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 1000px;
-        width: 90%;
-        margin: 20px auto;
-        overflow-y: auto;
-    }
+        .content {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 1000px;
+            width: 90%;
+            margin: 20px auto;
+            overflow-y: auto;
+        }
 
-    section h2, h3, h4, p, li, .paragraph {
-        font-family: "Baskerville", serif;
-        color: white;
-    }
+        section h2, h3, h4, p, li, .paragraph {
+            font-family: "Baskerville", serif;
+            color: white;
+        }
 
-    section h2 {
-        font-size: 20px;
-        text-align: left;
-    }
+        section h2 {
+            font-size: 20px;
+            text-align: left;
+        }
 
-    h1 {
-        border-radius: 2px;
-        text-align: center;
-        padding: 20px;
-        margin: 30px 0 40px;
-    }
+        h1 {
+            border-radius: 2px;
+            text-align: center;
+            padding: 20px;
+            margin: 30px 0 40px;
+        }
 
-    h2 {
-        border-radius: 2px;
-        padding: 10px;
-        margin: 10px 0 0 10px;
-        text-align: left;
-        font-size: 30px;
-    }
+        h2 {
+            border-radius: 2px;
+            padding: 10px;
+            margin: 10px 0 0 10px;
+            text-align: left;
+            font-size: 30px;
+        }
 
-    h3 {
-        padding: 5px;
-        margin: 10px 0 0;
-        text-align: left;
-        font-size: 20px;
-    }
+        h3 {
+            padding: 5px;
+            margin: 10px 0 0;
+            text-align: left;
+            font-size: 20px;
+        }
 
-    h4 {
-        border-radius: 2px;
-        padding: 15px;
-        margin: 10px 0 0 10px;
-        text-align: center;
-        font-size: 20px;
-        color: #4a2a80;
-    }
+        h4 {
+            border-radius: 2px;
+            padding: 15px;
+            margin: 10px 0 0 10px;
+            text-align: center;
+            font-size: 20px;
+            color: #4a2a80;
+        }
 
-    p,.paragraph {
-        font-size: 15px;
-        text-align: justify;
-        margin: 30px;
-        line-height: 1.5;
-    }
+        p,
+        .paragraph {
+            font-size: 15px;
+            text-align: justify;
+            margin: 30px;
+            line-height: 1.5;
+        }
 
-    .paragraph {
-        text-align: left;
-        margin: 4px 15px 12px;
-    }
+        .paragraph {
+            text-align: left;
+            margin: 4px 15px 12px;
+        }
 
-    ul {
-        list-style-type: square;
-    }
+        ul {
+            list-style-type: square;
+        }
 
-    li {
-        margin-top: 10px;
-        font-size: 15px;
-        text-align: left;
-    }
+        li {
+            margin-top: 10px;
+            font-size: 15px;
+            text-align: left;
+        }
 
-    .menu-container {
-        position: fixed;
-        top: 50px;
-        right: 20px;
-        z-index: 20;
-        transform: translateX(-50%);
-    }
+        .menu-container {
+            position: fixed;
+            top: 50px;
+            right: 20px;
+            z-index: 20;
+            transform: translateX(-50%);
+        }
 
-    .menu-button {
-        width: 50px;
-        height: 50px;
-        background-color: #17153b;
-        color: white;
-        font-size: 30px;
-        text-align: center;
-        line-height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+        .menu-button {
+            width: 50px;
+            height: 50px;
+            background-color: #17153b;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-    .menu-button::before {
-        content: "\2729";
-        color: white;
-    }
+        .menu-button::before {
+            content: "\2729";
+            color: white;
+        }
 
-    .menu-button.active {
-        transform: rotate(45deg);
-    }
+        .menu-button.active {
+            transform: rotate(45deg);
+        }
 
-    .menu-items {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        opacity: 0;
-        transform: translateY(10px);
-        pointer-events: none;
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
+        .menu-items {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
 
-    .menu-container.open .menu-items {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-    }
+        .menu-container.open .menu-items {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
 
-    .menu-item {
-        width: 50px;
-        height: 50px;
-        background-color: #17153b;
-        color: white;
-        font-size: 20px;
-        text-align: center;
-        line-height: 50px;
-        border-radius: 50%;
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-    }
+        .menu-item {
+            width: 50px;
+            height: 50px;
+            background-color: #17153b;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
 
-    .menu-item:hover {
-        background-color: #2e295f;
-        transform: scale(1.1);
-    }    
+        .menu-item:hover {
+            background-color: #2e295f;
+            transform: scale(1.1);
+        }
+    
 </style>
