@@ -86,9 +86,6 @@ export default {
 </script>
 
 <style scoped>
-
-
-
 body {
     margin: 0;
     font-family: "Baskerville", serif;
@@ -97,6 +94,7 @@ body {
     position: relative;
 }
 
+/* Content Styles */
 .content {
     background: rgba(0, 0, 0, 0.5);
     padding: 20px;
@@ -107,6 +105,7 @@ body {
     overflow-y: auto;
 }
 
+/* Typography Styles */
 section h2, h3, h4, p, li, .paragraph {
     font-family: "Baskerville", serif;
     color: white;
@@ -170,14 +169,14 @@ li {
     text-align: left;
 }
 
-
+/* Reset Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fix Backgrounds */
+/* Fixed Backgrounds */
 .background {
     position: fixed;
     top: 0;
@@ -191,16 +190,13 @@ li {
     transition: opacity 0.7s ease-in-out;
 }
 
-/* First Background */
+/* Background Images */
 .background1 {
     background-image: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home1.png?raw=true');
-    
 }
 
-/* Second Background */
 .background2 {
     background-image: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home2.png?raw=true');
-    
 }
 
 /* Content Sections */
@@ -217,7 +213,7 @@ li {
     width: 100%;
 }
 
-/* Switch background on scroll */
+/* Background Switching on Scroll */
 .section2-triggered .background1 {
     opacity: 1;
 }
@@ -226,42 +222,32 @@ li {
     opacity: 1;
 }
 
-
 .section2 {
-    position: relative; /* Ensure it's a positioning context */
-    text-align: center; /* Center align content */
-    padding-bottom: 60px; /* Add space for button */
+    position: relative;
+    text-align: center;
+    padding-bottom: 60px;
 }
 
-
-/* Content Box */
-.content {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 600px;
-    width: 90%;
+/* Adjusted Content Box for Section 2 */
+.section2 .content {
     margin-top: 90px;
     margin-left: 25%;
     margin-right: 30%;
-    overflow-y: auto;
 }
 
-body:not(.section2-triggered) .background2{
-opacity: 0;
+/* Background Opacity for Non-Triggered Section 2 */
+body:not(.section2-triggered) .background2 {
+    opacity: 0;
 }
-
 
 /* Floating Menu Styles */
-
 .menu-container {
-    position: fixed; /* Change to fixed positioning */
-    top: 50px;   /* Adjust distance from top as needed */
-    right: 20px;   /* Adjust distance from left as needed */
-    z-index: 20;  /* Ensure it's above other elements */
-    transform: translateX(-50%); /* Remove the horizontal centering */
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    z-index: 20;
+    transform: translateX(-50%);
 }
-
 
 .menu-button {
     width: 50px;
@@ -276,36 +262,34 @@ opacity: 0;
     transition: 0.3s;
 }
 
-.menu-button::before { 
-    content: "\2729"; /* Unicode for a four-pointed star */
-    color: white;  /* Unicode for a four-pointed star */
+.menu-button::before {
+    content: "\2729";
+    color: white;
 }
 
 .menu-button.active {
     transform: rotate(45deg);
 }
 
-/* Hidden by Default */
 .menu-items {
     position: absolute;
-    top: 70px; /* Position below the button */
-    left: 0;    /* Align with the button's left edge */
+    top: 70px;
+    left: 0;
     display: flex;
-    flex-direction: column; /* Arrange items vertically */
+    flex-direction: column;
     gap: 15px;
     opacity: 0;
-    transform: translateY(10px); /* Initial offset downwards */
+    transform: translateY(10px);
     pointer-events: none;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .menu-container.open .menu-items {
     opacity: 1;
-    transform: translateY(0); /* Remove the offset */
+    transform: translateY(0);
     pointer-events: auto;
 }
 
-/* Individual Buttons */
 .menu-item {
     width: 50px;
     height: 50px;
@@ -327,7 +311,7 @@ opacity: 0;
     transform: scale(1.1);
 }
 
-/* Center Image and adjust size */
+/* Center Image and Adjust Size */
 .center-image {
     display: flex;
     justify-content: center;
@@ -342,5 +326,4 @@ opacity: 0;
     height: auto;
     display: block;
 }
-
 </style>

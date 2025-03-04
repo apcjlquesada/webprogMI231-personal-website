@@ -76,218 +76,212 @@ export default {
 </script>
 
 <style scoped>
-/* Image Styles */
-.gallery-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  margin: 5px;
-  border: 2px solid transparent;
-  object-fit: contain;
-  max-width: 300px;
-  max-height: 300px;
+    /* Image Styles */
+    .gallery-image {
+        width: 100%; /* Make images responsive within their grid cell */
+        height: auto;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        margin: 5px;
+        border: 2px solid transparent;
+        object-fit: contain; /* Maintain aspect ratio */
+        max-width: 300px; /* Prevent images from becoming too large */
+        max-height: 300px;
+    }
+
+    .gallery-image:hover {
+        border-color: #cfc6e1;
+    }
+
+    .gallery-image.enlarged {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        max-width: 90vw; /* Adjust percentage as needed */
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+    }
+
+    /* Modal Overlay (Optional, for background dimming when enlarged) */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300%;
+        height: 300%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        cursor: pointer;
 }
 
-.gallery-image:hover {
-  border-color: #cfc6e1;
-}
+    .overlay.active {
+        display: block;
+    }
 
-.gallery-image.enlarged {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  max-width: 90vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-}
+    /* Gallery Container */
+    .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 5px;
+        margin-top: 20px;
+    }
 
-/* Modal Overlay */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  cursor: pointer;
-}
 
-.overlay.active {
-  display: block;
-}
+    body {
+        margin: 0;
+        font-family: "Baskerville", serif;
+        background: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true') center/cover no-repeat;
+        min-height: 100vh;
+        color: white;
+        position: relative;
+        background-attachment: fixed;
+    }
 
-/* Gallery Container */
-.gallery-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 5px;
-  margin-top: 20px;
-}
+    .content {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 1000px;
+        width: 90%;
+        margin: 20px auto;
+        overflow-y: auto;
+    }
 
-body {
-  margin: 0;
-  font-family: "Baskerville", serif;
-  background: url("https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true")
-    center/cover no-repeat;
-  min-height: 100vh;
-  color: white;
-  position: relative;
-  background-attachment: fixed;
-}
+    section h2, h3, h4, p, li, .paragraph {
+        font-family: "Baskerville", serif;
+        color: white;
+    }
 
-.content {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 1000px;
-  width: 90%;
-  margin: 20px auto;
-  overflow-y: auto;
-}
+    section h2 {
+        font-size: 20px;
+        text-align: left;
+    }
 
-section h2,
-h3,
-h4,
-p,
-li,
-.paragraph {
-  font-family: "Baskerville", serif;
-  color: white;
-}
+    h1 {
+        border-radius: 2px;
+        text-align: center;
+        padding: 20px;
+        margin: 30px 0 40px;
+    }
 
-section h2 {
-  font-size: 20px;
-  text-align: left;
-}
+    h2 {
+        border-radius: 2px;
+        padding: 10px;
+        margin: 10px 0 0 10px;
+        text-align: left;
+        font-size: 30px;
+    }
 
-h1 {
-  border-radius: 2px;
-  text-align: center;
-  padding: 20px;
-  margin: 30px 0 40px;
-}
+    h3 {
+        padding: 5px;
+        margin: 10px 0 0;
+        text-align: left;
+        font-size: 20px;
+    }
 
-h2 {
-  border-radius: 2px;
-  padding: 10px;
-  margin: 10px 0 0 10px;
-  text-align: left;
-  font-size: 30px;
-}
+    h4 {
+        border-radius: 2px;
+        padding: 15px;
+        margin: 10px 0 0 10px;
+        text-align: center;
+        font-size: 20px;
+        color: #4a2a80;
+    }
 
-h3 {
-  padding: 5px;
-  margin: 10px 0 0;
-  text-align: left;
-  font-size: 20px;
-}
+    p,.paragraph {
+        font-size: 15px;
+        text-align: justify;
+        margin: 30px;
+        line-height: 1.5;
+    }
 
-h4 {
-  border-radius: 2px;
-  padding: 15px;
-  margin: 10px 0 0 10px;
-  text-align: center;
-  font-size: 20px;
-  color: #4a2a80;
-}
+    .paragraph {
+        text-align: left;
+        margin: 4px 15px 12px;
+    }
 
-p,
-.paragraph {
-  font-size: 15px;
-  text-align: justify;
-  margin: 30px;
-  line-height: 1.5;
-}
+    ul {
+        list-style-type: square;
+    }
 
-.paragraph {
-  text-align: left;
-  margin: 4px 15px 12px;
-}
+    li {
+        margin-top: 10px;
+        font-size: 15px;
+        text-align: left;
+    }
 
-ul {
-  list-style-type: square;
-}
+    .menu-container {
+        position: fixed;
+        top: 50px;
+        right: 20px;
+        z-index: 20;
+        transform: translateX(-50%);
+    }
 
-li {
-  margin-top: 10px;
-  font-size: 15px;
-  text-align: left;
-}
+    .menu-button {
+        width: 50px;
+        height: 50px;
+        background-color: #17153b;
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-.menu-container {
-  position: fixed;
-  top: 50px;
-  right: 20px;
-  z-index: 20;
-  transform: translateX(-50%);
-}
+    .menu-button::before {
+        content: "\2729";
+        color: white;
+    }
 
-.menu-button {
-  width: 50px;
-  height: 50px;
-  background-color: #17153b;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    .menu-button.active {
+        transform: rotate(45deg);
+    }
 
-.menu-button::before {
-  content: "\2729";
-  color: white;
-}
+    .menu-items {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
 
-.menu-button.active {
-  transform: rotate(45deg);
-}
+    .menu-container.open .menu-items {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 
-.menu-items {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
+    .menu-item {
+        width: 50px;
+        height: 50px;
+        background-color: #17153b;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
 
-.menu-container.open .menu-items {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.menu-item {
-  width: 50px;
-  height: 50px;
-  background-color: #17153b;
-  color: white;
-  font-size: 20px;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 50%;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.menu-item:hover {
-  background-color: #2e295f;
-  transform: scale(1.1);
-}
+    .menu-item:hover {
+        background-color: #2e295f;
+        transform: scale(1.1);
+    }    
 </style>

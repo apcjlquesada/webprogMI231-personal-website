@@ -77,173 +77,169 @@ export default {
 
 <style scoped>
 body {
-  margin: 0;
-  font-family: "Baskerville", serif;
-  background: url("https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true")
-    center/cover no-repeat;
-  min-height: 100vh;
-  color: white;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-attachment: fixed;
+    margin: 0;
+    font-family: "Baskerville", serif;
+    background: url('https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/Home3.png?raw=true') center/cover no-repeat;
+    min-height: 100vh;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-attachment: fixed;
 }
 
+/* Content Layout */
 .content-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 90%;
-  max-width: 1200px;
-  margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
 }
 
 .content {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 40vw;
-  width: 40%;
-  margin: 20px;
-  overflow-y: auto;
-  box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 40vw;
+    width: 40%;
+    margin: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
-section h2,
-h3,
-h4,
-p,
-li,
-.paragraph {
-  font-family: "Baskerville", serif;
-  color: white;
+/* Typography Styles */
+section h2, h3, h4, p, li, .paragraph {
+    font-family: "Baskerville", serif;
+    color: white;
 }
 
 section h2 {
-  font-size: 20px;
-  text-align: left;
+    font-size: 20px;
+    text-align: left;
 }
 
 h1 {
-  border-radius: 2px;
-  text-align: center;
-  padding: 20px;
-  margin: 30px 0 40px;
+    border-radius: 2px;
+    text-align: center;
+    padding: 20px;
+    margin: 30px 0 40px;
 }
 
 h2 {
-  border-radius: 2px;
-  padding: 10px;
-  text-align: left;
-  font-size: 20px;
+    border-radius: 2px;
+    padding: 10px;
+    text-align: left;
+    font-size: 20px;
 }
 
 h3 {
-  padding: 5px;
-  margin: 10px 0 0;
-  text-align: left;
-  font-size: 20px;
+    padding: 5px;
+    margin: 10px 0 0;
+    text-align: left;
+    font-size: 20px;
 }
 
 h4 {
-  border-radius: 2px;
-  padding: 30px;
-  margin: 10px 0 0 10px;
-  text-align: center;
-  font-size: 30px;
+    border-radius: 2px;
+    padding: 30px;
+    margin: 10px 0 0 10px;
+    text-align: center;
+    font-size: 30px;
 }
 
-p,
-.paragraph {
-  font-size: 15px;
-  text-align: justify;
-  margin: 30px;
-  line-height: 1.5;
+p, .paragraph {
+    font-size: 15px;
+    text-align: justify;
+    margin: 30px;
+    line-height: 1.5;
 }
 
 .paragraph {
-  text-align: left;
-  margin: 4px 15px 12px;
+    text-align: left;
+    margin: 4px 15px 12px;
 }
 
 ul {
-  list-style-type: square;
+    list-style-type: square;
 }
 
 li {
-  margin-top: 10px;
-  font-size: 15px;
-  text-align: left;
+    margin-top: 10px;
+    font-size: 15px;
+    text-align: left;
 }
 
+/* Floating Menu Styles */
 .menu-container {
-  position: fixed;
-  top: 50px;
-  right: 20px;
-  z-index: 20;
-  transform: translateX(-50%);
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    z-index: 20;
+    transform: translateX(-50%);
 }
 
 .menu-button {
-  width: 50px;
-  height: 50px;
-  background-color: #17153b;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
+    width: 50px;
+    height: 50px;
+    background-color: #17153b;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .menu-button::before {
-  content: "\2729";
-  color: white;
+    content: "\2729";
+    color: white;
 }
 
 .menu-button.active {
-  transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .menu-items {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .menu-container.open .menu-items {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .menu-item {
-  width: 50px;
-  height: 50px;
-  background-color: #17153b;
-  color: white;
-  font-size: 20px;
-  text-align: center;
-  line-height: 50px;
-  border-radius: 50%;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    width: 50px;
+    height: 50px;
+    background-color: #17153b;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .menu-item:hover {
-  background-color: #2e295f;
-  transform: scale(1.1);
+    background-color: #2e295f;
+    transform: scale(1.1);
 }
 </style>
