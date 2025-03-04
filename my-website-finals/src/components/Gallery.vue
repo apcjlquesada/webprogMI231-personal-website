@@ -24,7 +24,7 @@
         <a href="guestbook.html" class="menu-item">📝</a>
       </div>
     </div>
-    <div class="overlay" :class="{ active: showOverlay }" @click="closeEnlarged">
+    <div v-if="showOverlay" class="overlay" @click="closeEnlarged">
       <img v-if="enlargedImage" :src="enlargedImage" class="gallery-image enlarged" />
     </div>
   </div>
