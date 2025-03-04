@@ -1,42 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="background background1"></div>
-    <div class="background background2"></div>
-
-    <div class="section section1">
-        <div class="center-image">
-            <img src="https://github.com/MarielleKloieAPC/webprogMI231-personal-website-1/blob/feature/website_finals/home/images/port_pic.png?raw=true" alt="Your Image Here">
-        </div>
-    </div>
-
-    <div class="section section2">
-        <div class="content">
-            <section id="about">
-                <h2>About Me</h2>
-                <p>Hello! My username is MarielleKloie, this is my personal profile web page.<br>
-                <br>I aspire to be an Information Technology Specialist, a position that can hone me into the best employee I can be, versatile and efficient enough to be showcased in the industry today. Being in a working environment will encourage me to be confident and true to myself.</p>
-            </section>
-        </div>
-
-        <div class="menu-container">
-            <div class="menu-button" id="menuButton"></div>
-            <div class="menu-items">
-                <a href="index.html" class="menu-item">🏠</a>
-                <a href="edu_exp.html" class="menu-item">🎓</a>
-                <a href="interest.html" class="menu-item">❤️</a>
-                <a href="gallery.html" class="menu-item">🖼️</a>
-                <a href="guestbook.html" class="menu-item">📝</a>
-            </div>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
-</body>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    </body>
 </html>

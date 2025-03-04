@@ -2,5 +2,18 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",
     "vue-router": "^4.5.0"
-  }
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^3.3.1"
+  },
+  "name": "webprogmi231-personal-website-finals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
